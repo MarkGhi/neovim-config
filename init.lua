@@ -51,7 +51,8 @@ vim.g['airline#extensions#tabline#enabled'] = 1
 
 -- NerdTree setup 
 
-vim['NERDTreeShowHidden'] = 1
+vim.g['NERDTreeShowHidden'] = 1
+
 
 vim.keymap.set('n', '<C-p>', ':NERDTreeFocus<CR>')
 vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>')
