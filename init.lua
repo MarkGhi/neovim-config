@@ -2,68 +2,58 @@ local Plug = vim.fn['plug#']
 
 vim.call('plug#begin')
     -- Appearance
-    Plug 'vim-airline/vim-airline'
-    Plug 'vim-airline/vim-airline-themes'
-    Plug 'ryanoasis/vim-devicons'
-
+    Plug 'vim-airline/vim-airline'                      -- Fancy bottom statusbar
+    Plug 'vim-airline/vim-airline-themes'               -- Statusbar themes
+    Plug 'ryanoasis/vim-devicons'                       -- Icons for the interface
+    Plug 'morhetz/gruvbox'                              -- Custom theme
+    
     -- Utilities
-    Plug 'sheerun/vim-polyglot'
-    Plug 'jiangmiao/auto-pairs'
-    Plug 'ap/vim-css-color'
-    Plug 'preservim/nerdtree'
+    Plug 'sheerun/vim-polyglot'                         -- Syntax highlighting for several programming languages
+    Plug 'jiangmiao/auto-pairs'                         -- Automatically closes parentheses, square brackets and braces when typing.
+    Plug 'ap/vim-css-color'                             -- Show colors directly in the code
+    Plug 'preservim/nerdtree'                           -- Sidebar for project file navigation
 
     -- Completion / linters / formatters
-    Plug ('neoclide/coc.nvim', {branch= 'release'})
-    Plug 'plasticboy/vim-markdown'
+    Plug ('neoclide/coc.nvim', {branch= 'release'})     -- Auto completition
+    Plug 'plasticboy/vim-markdown'                      -- .md syntax support
 
     -- Git
-    Plug 'airblade/vim-gitgutter'
-
-    -- Theming
-    Plug 'morhetz/gruvbox'
+    Plug 'airblade/vim-gitgutter'                       -- Shows git changes in open files
 
 vim.call('plug#end')
 
 --Options
-vim.opt.background='dark'
-vim.opt.clipboard='unnamedplus'
-vim.opt.completeopt='noinsert,menuone,noselect'
-vim.opt.hidden = true
-vim.opt.inccommand='split'
-vim.opt.mouse='a'
-vim.opt.splitbelow=true
-vim.opt.splitright=true
-vim.opt.title=true
-vim.opt.ttimeoutlen=0
-vim.opt.wildmenu=true
+vim.opt.background='dark'                               -- Apply the color set for dark colors (not only the background as it might look)
+vim.opt.clipboard='unnamedplus'                         -- Enable clipboard between Neovim and other applications
+vim.opt.completeopt='noinsert,menuone,noselect'         -- Modifies the auto-complete menu to behave more like an IDE
+vim.opt.hidden = true                                   -- Hide unused buffer
+vim.opt.inccommand='split'                              -- Show replacements in a split screen, before applying to the file.
+vim.opt.mouse='a'                                       -- Enable mouse use
+vim.opt.splitbelow=true                                 -- Screen will always split below right the current screen
+vim.opt.splitright=true                                 
+vim.opt.title=true                                      -- Show the file title
+vim.opt.ttimeoutlen=0                                   -- Time in millisecond to run commands
+vim.opt.wildmenu=true                                   -- Advanced menu for auto-completition
 
+-- Airline setup
+vim.g['airline_theme'] = 'bubblegum'                    -- Set Airline theme
+vim.g['airline_powerline_fonts'] = 1                    -- Set powerline mode
+vim.g['airline#extensions#tabline#enabled'] = 1         -- Enable Airline also for the tab bar
+
+-- NerdTree setup 
+vim.g['NERDTreeShowHidden'] = 1                         -- Set NerdTree to show also hidden file
+
+
+--vim.keymap.set('t', '<Esc> <C-\><C-n>', ':NERDTreeFocus<CR>')
+vim.keymap.set('n', '<C-p>', ':NERDTreeFocus<CR>')
+vim.keymap.set('n', '<C-b>', ':NERDTreeToggle<CR>')
+vim.keymap.set('n', '<C-f>', ':NERDTreeFind<CR>')
+
+-- Last line tell to open by default NerdTree and focus on editor
 vim.cmd[[
   syntax enable
   colorscheme gruvbox
-]]
-
--- Airline setup
-
-vim.g['airline_theme'] = 'bubblegum'
-vim.g['airline_powerline_fonts'] = 1 
-vim.g['airline#extensions#tabline#enabled'] = 1
-
-
--- NerdTree setup 
-
-vim.g['NERDTreeShowHidden'] = 1
-
-
-vim.keymap.set('n', '<C-p>', ':NERDTreeFocus<CR>')
-vim.keymap.set('n', '<C-n>', ':NERDTreeToggle<CR>')
-vim.keymap.set('n', '<C-f>', ':NERDTreeFind<CR>')
-
-
---vim.api.nvim_create_autocmd('autocmd VimEnter * NERDTree | wincmd p', {callback = function() end})
-
-vim.cmd[[
   autocmd VimEnter * NERDTree | wincmd p
 ]]
---autocmd VimEnter * NERDTree | wincmd p --Open by default NerdTree and focus on editor
 
 --vim.opt. t_Co=256 #Enable 256 colors on the terminal (don't really know what it means, so off for now)
