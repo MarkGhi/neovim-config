@@ -43,17 +43,21 @@ vim.g['airline#extensions#tabline#enabled'] = 1         -- Enable Airline also f
 -- NerdTree setup 
 vim.g['NERDTreeShowHidden'] = 1                         -- Set NerdTree to show also hidden file
 
-
---vim.keymap.set('t', '<Esc> <C-\><C-n>', ':NERDTreeFocus<CR>')
 vim.keymap.set('n', '<C-p>', ':NERDTreeFocus<CR>')
 vim.keymap.set('n', '<C-b>', ':NERDTreeToggle<CR>')
 vim.keymap.set('n', '<C-f>', ':NERDTreeFind<CR>')
+
+vim.keymap.set('n', '<C-n>', function()
+  vim.cmd('split term://zsh | resize 10')
+end, {desc = 'Open terminal in new tab'})
 
 -- Last line tell to open by default NerdTree and focus on editor
 vim.cmd[[
   syntax enable
   colorscheme gruvbox
   autocmd VimEnter * NERDTree | wincmd p
+  au TermOpen * tnoremap <Esc> <C-\><C-n>
+  au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 ]]
 
 --vim.opt. t_Co=256 #Enable 256 colors on the terminal (don't really know what it means, so off for now)
