@@ -1,5 +1,8 @@
 {
   "coc.preferences.formatOnSaveFiletypes": [
-    "dart"
+    "dart",
+    "lua"
   ],
+
+  "stylua.styluaPath": "/usr/bin/stylua"
 }
