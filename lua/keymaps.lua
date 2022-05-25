@@ -31,8 +31,12 @@ vim.keymap.set("n", "<Leader>t", function() -- Set Ctrl+n shortcut to open termi
 end, { desc = "Open terminal in new tab" })
 
 vim.keymap.set("n", "<Leader>fr", ":CocCommand flutter.run<CR>")
-vim.keymap.set("n", "<Leader>fe", ":CocCommand flutter.devices<CR>")
+vim.keymap.set("n", "<Leader>fd", ":CocCommand flutter.devices<CR>")
+vim.keymap.set("n", "<Leader>fb", ":below new output:///flutter-dev<CR>")
+vim.keymap.set("n", "<Leader>fe", ":CocCommand flutter.emulators<CR>")
+vim.keymap.set("n", "<Leader>.", "<Plug>(coc-codeaction-selected)")
+vim.keymap.set("x", "<Leader>.", "<Plug>(coc-codeaction-selected)")
 
 vim.keymap.set("n", "<Leader>p", ":Telescope project<CR>")
 
-vim.keymap.set("n", "<Leader>j", ":call CocActionAsync('jumpDefinition')<CR>")
+vim.keymap.set("n", "<Leader>d", ":call CocActionAsync('jumpDefinition')<CR>")
