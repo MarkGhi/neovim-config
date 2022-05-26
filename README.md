@@ -10,5 +10,5 @@ Dependencies:
 
 Install necessary Coc extension with:
 ````
-:CocInstall coc-flutter coc-lua coc-stylua
+:CocInstall coc-flutter coc-lua coc-stylua coc-pyright
 ````
