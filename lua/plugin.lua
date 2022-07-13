@@ -78,4 +78,13 @@ require("packer").startup(function()
 			require("telescope").load_extension("project")
 		end,
 	})
+	use({
+ 		"folke/which-key.nvim",
+  	config = function()
+    	require("which-key").setup {}
+  	end
+	})
+	use {"akinsho/toggleterm.nvim", tag = 'v2.*', config = function()
+  	require("toggleterm").setup()
+	end}
 end)
