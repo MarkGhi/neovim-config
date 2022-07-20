@@ -24,11 +24,13 @@ vim.g["NERDTreeShowHidden"] = 1 -- Set NerdTree to show also hidden file
 -- Last line tell to open by default NerdTree and focus on editor
 vim.cmd([[
   syntax enable
-  colorscheme gruvbox
   au TermOpen * tnoremap <Esc> <C-\><C-n>
   au BufEnter * if &buftype == 'terminal' | :startinsert | endif
 ]])
 
---autocmd VimEnter * NERDTree | wincmd p
+require('onedark').setup {
+    style = 'warmer'
+}
+require('onedark').load()
 
---vim.opt. t_Co=256 #Enable 256 colors on the terminal (don't really know what it means, so off for now)
+--vim.opt.t_Co=256 --Enable 256 colors on the terminal (don't really know what it means, so off for now)

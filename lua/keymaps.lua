@@ -11,8 +11,8 @@ vim.keymap.set("n", "<A-Up>", "<C-w>k", { desc = "Move to top windows" })
 vim.keymap.set("n", "<A-Right>", "<C-w>l", { desc = "Move to right windows" })
 
 vim.keymap.set("n", "<Esc>", "<cmd> noh <CR>", { desc = "Remove highlight" })
-vim.keymap.set("n", "<C-b>", "<ESC>^", { desc = "Go to beginning" })
-vim.keymap.set("n", "<C-e>", "<End>", { desc = "Go to end" })
+vim.keymap.set("n", "<C-h>", "<ESC>^", { desc = "Go to beginning" })
+vim.keymap.set("n", "<C-l>", "<End>", { desc = "Go to end" })
 vim.keymap.set("n", "<C-c>", "<cmd> %y+ <CR>", { desc = "Copy all" })
 vim.keymap.set("n", "<C-s>", "<cmd> w <CR>", { desc = "Save" })
 vim.keymap.set("n", "<C-w>", ":b#|bd# <CR>", { desc = "Close current buffer" })
@@ -32,6 +32,7 @@ end, { desc = "Show all keybindings" })
 -- Flutter
 vim.keymap.set("n", "<Leader>fr", ":CocCommand flutter.run<CR>", { desc = "Run flutter project" })
 vim.keymap.set("n", "<Leader>fd", ":CocCommand flutter.devices<CR>", { desc = "Show all availiable flutter devices" })
+vim.keymap.set("n", "<Leader>fh", ":CocCommand flutter.dev.hotRestart<CR>", { desc = "Run hot restart" })
 vim.keymap.set("n", "<Leader>fb", ":below new output:///flutter-dev<CR>", { desc = "Show debug window" })
 vim.keymap.set("n", "<Leader>fe", ":CocCommand flutter.emulators<CR>", { desc = "Show all availiable flutter emulators" })
 
